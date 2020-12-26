@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ff2c40a-e1e2-46bb-87a0-3161ee4767f6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project0.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201213032147.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201215145416.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201217022123.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/BlogPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/BlogPost.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +166,13 @@
       <workItem from="1608613105511" duration="389000" />
       <workItem from="1608685808942" duration="423000" />
       <workItem from="1608749942538" duration="1442000" />
-      <workItem from="1608754512735" duration="1914000" />
+      <workItem from="1608754512735" duration="2996000" />
+      <workItem from="1608761922913" duration="3163000" />
+      <workItem from="1608767313749" duration="287000" />
+      <workItem from="1608768027730" duration="2053000" />
+      <workItem from="1608825250338" duration="804000" />
+      <workItem from="1608930213055" duration="4364000" />
+      <workItem from="1608935748608" duration="5725000" />
     </task>
     <servers />
   </component>

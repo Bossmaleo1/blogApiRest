@@ -10,7 +10,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=BlogPostRepository::class)
- * @ApiResource()
+ * @ApiResource(
+ *     itemOperations={"get"},
+ *     collectionOperations={"get"}
+ * )
  */
 class BlogPost
 {
@@ -43,7 +46,7 @@ class BlogPost
     private $author;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="blogost")
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="blogPost")
      */
     private $comments;
 
@@ -134,7 +137,7 @@ class BlogPost
     {
         if (!$this->comments->contains($comment)) {
             $this->comments[] = $comment;
-            $comment->setBlogost($this);
+            $comment->setBlogPost($this);
         }
 
         return $this;
@@ -144,12 +147,13 @@ class BlogPost
     {
         if ($this->comments->removeElement($comment)) {
             // set the owning side to null (unless already changed)
-            if ($comment->getBlogost() === $this) {
-                $comment->setBlogost(null);
+            if ($comment->getBlogPost() === $this) {
+                $comment->setBlogPost(null);
             }
         }
 
         return $this;
     }
+
 
 }
