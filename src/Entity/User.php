@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ApiResource(
  *     itemOperations={"get"},
- *     collectionOperations={},
+ *     collectionOperations={"post"},
  *     normalizationContext={
  *        "groups"={"read"}
  *     }

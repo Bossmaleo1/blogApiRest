@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ff2c40a-e1e2-46bb-87a0-3161ee4767f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/EventSubcriber/PasswordHashSubscriber.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/BlogPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/BlogPost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +173,12 @@
       <workItem from="1608768027730" duration="2053000" />
       <workItem from="1608825250338" duration="804000" />
       <workItem from="1608930213055" duration="4364000" />
-      <workItem from="1608935748608" duration="5725000" />
+      <workItem from="1608935748608" duration="7242000" />
+      <workItem from="1608944798341" duration="47000" />
+      <workItem from="1608945088492" duration="5199000" />
+      <workItem from="1609081883033" duration="4885000" />
+      <workItem from="1609100089675" duration="837000" />
+      <workItem from="1609101171511" duration="1479000" />
     </task>
     <servers />
   </component>
