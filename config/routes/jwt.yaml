@@ -1,0 +1,2 @@
+api_login_ckeck:
+  path: /api/login_check
