@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -15,32 +16,55 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ApiResource(
  *     itemOperations={
- *     "get"
+ *     "get"={
+ *          "access_control"="is_granted('IS_AUTHENTICATED_FULLY')",
+ *          "normalization_context"={
+ *              "groups"={"get"}
+ *          }
+ *     },
+ *     "put"={
+ *          "access_control"="is_granted('IS_AUTHENTICATED_FULLY') and object == user",
+ *          "denormalization_context"={
+ *                  "groups"={"put"}
+ *          },
+ *          "normalization_context"={
+ *              "groups"={"get"}
+ *          }
+ *     }
  * },
  *     collectionOperations={
- *     "get",
- *     "post"
- * },
- *     normalizationContext={
- *        "groups"={"read"}
- *     }
+ *              "post" = {
+ *                   "denormalization_context"={
+ *                          "groups"={"post"}
+ *                    }
+ *              }
+ *      },
  * )
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"username","email"})
+ * @UniqueEntity("username")
+ * @UniqueEntity("email")
  */
 class User implements UserInterface
 {
+    const ROLE_COMMENTATOR = 'ROLE_COMMENTATOR';
+    const ROLE_WRITER = 'ROLE_WRITER';
+    const ROLE_EDITOR = 'ROLE_EDITOR';
+    const ROLE_ADMIN = 'ROLE_ADMIN';
+    const ROLE_SUPERADMIN = 'ROLE_SUPERADMIN';
+
+    const DEFAULT_ROLES = [self::ROLE_COMMENTATOR];
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"read"})
+     * @Groups({"get"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"read"})
+     * @Groups({"get", "post", "get-comment-with-author", "get-blog-post-with-author"})
      * @Assert\NotBlank()
      * @Assert\Length(min=6,max=255)
      */
@@ -48,6 +72,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"put","post"})
      * @Assert\NotBlank()
      * @Assert\Regex(
      *     pattern="/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{7,}/",
@@ -57,6 +82,7 @@ class User implements UserInterface
     private $password;
 
     /**
+     * @Groups({"put","post"})
      * @Assert\NotBlank()
      * @Assert\Expression(
      *     "this.getPassword() === this.getRetypedPassword()",
@@ -67,7 +93,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"read"})
+     * @Groups({"get", "post", "put", "get-comment-with-author", "get-blog-post-with-author"})
      * @Assert\NotBlank()
      */
     private $name;
@@ -76,26 +102,33 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
      * @Assert\Email()
+     * @Groups({"post", "put", "get-admin"})
      * @Assert\Length(min=6,max=255)
      */
     private $email;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\BlogPost", mappedBy="author")
-     * @Groups({"read"})
+     * @Groups({"get"})
      */
     private $posts;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="author")
-     * @Groups({"read"})
+     * @Groups({"get"})
      */
     private $comments;
+
+    /**
+     * @ORM\Column(type="simple_array",length=200)
+     */
+    private $roles;
 
     public function __construct()
     {
         $this->posts = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->roles = self::DEFAULT_ROLES;
     }
 
     public function getId(): ?int
@@ -172,7 +205,7 @@ class User implements UserInterface
     public function removePost(BlogPost $post): self
     {
         if ($this->posts->removeElement($post)) {
-            // set the owning side to null (unless already changed)
+            // set the owning side to null (unless algety changed)
             if ($post->getAuthor() === $this) {
                 $post->setAuthor(null);
             }
@@ -202,7 +235,7 @@ class User implements UserInterface
     public function removeComment(Comment $comment): self
     {
         if ($this->comments->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
+            // set the owning side to null (unless algety changed)
             if ($comment->getAuthor() === $this) {
                 $comment->setAuthor(null);
             }
@@ -211,9 +244,17 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRoles()
+    public function getRoles():array
     {
-        return ['ROLE_USER'];
+        return $this->roles;
+    }
+
+    /**
+     * @param mixed $roles
+     */
+    public function setRoles($roles): void
+    {
+        $this->roles = $roles;
     }
 
     public function getSalt()
