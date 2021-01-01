@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ff2c40a-e1e2-46bb-87a0-3161ee4767f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Serializer/UserAttributeNormalizer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Serializer/UserContextBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Serializer/UserContextBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +194,8 @@
       <workItem from="1609235071534" duration="18127000" />
       <workItem from="1609287216923" duration="21713000" />
       <workItem from="1609311859696" duration="8054000" />
-      <workItem from="1609385225048" duration="15452000" />
+      <workItem from="1609385225048" duration="15786000" />
+      <workItem from="1609475768250" duration="4205000" />
     </task>
     <servers />
   </component>
